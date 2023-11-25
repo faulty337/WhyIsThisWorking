@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
-public enum ColorStyle {
-    WHITE("white"),
+@AllArgsConstructor
+public enum TextColor {
+    DEFAULT("default"),
+    RED("red"),
     BLUE("blue"),
-    RED("ted"),
-    YELLOW("yellow");
+    GREY("grey");
 
     private final String value;
 

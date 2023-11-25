@@ -2,7 +2,7 @@ package com.example.whyisthisworking.kakao;
 
 import com.example.whyisthisworking.kakao.block.KakaoBlockHeader;
 import com.example.whyisthisworking.kakao.dto.KakaoWorkMessageReqDto;
-import com.example.whyisthisworking.kakao.enums.ColorStyle;
+import com.example.whyisthisworking.kakao.enums.HeaderStyle;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ public class KakaoService {
     private String kakaoRoomId;
 
 
-    public KakaoWorkMessageReqDto sendKakaoMessage(String headerText, ColorStyle headerStyle){
+    public KakaoWorkMessageReqDto sendKakaoMessage(String headerText, HeaderStyle headerStyle){
         KakaoWorkMessageReqDto requestDto = new KakaoWorkMessageReqDto(kakaoRoomId, headerText);
         KakaoBlockHeader header = new KakaoBlockHeader(headerText, headerStyle);
         requestDto.addBlock(header);

@@ -1,17 +1,16 @@
 package com.example.whyisthisworking.kakao.block;
 
-import com.example.whyisthisworking.kakao.enums.ColorStyle;
+import com.example.whyisthisworking.kakao.enums.HeaderStyle;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
 public class KakaoBlockHeader implements KakaoBlockInterface {
     private final String type = "header";
     private String text;
-    private ColorStyle style;
+    private HeaderStyle style;
 
-    public KakaoBlockHeader(String text, ColorStyle style){
+    public KakaoBlockHeader(String text, HeaderStyle style){
         this.text = text;
         this.style = style;
     }
