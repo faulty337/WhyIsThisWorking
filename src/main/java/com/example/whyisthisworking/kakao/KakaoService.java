@@ -44,7 +44,11 @@ public class KakaoService {
                 .bodyToMono(KakaoWorkResDto.class);
 
         response.subscribe(re -> {
-            log.info(re.toString());
+            if(!re.isSuccess()){
+                log.error(re.getError().getCode() + " :: " + re.getError().getMessage());
+            }else{
+                //log.info(re.getMessage().toString());
+            }
         });
     }
 }
