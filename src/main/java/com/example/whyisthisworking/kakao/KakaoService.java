@@ -2,6 +2,7 @@ package com.example.whyisthisworking.kakao;
 
 import com.example.whyisthisworking.kakao.block.KakaoBlockHeader;
 import com.example.whyisthisworking.kakao.dto.KakaoWorkMessageReqDto;
+import com.example.whyisthisworking.kakao.dto.KakaoWorkResDto;
 import com.example.whyisthisworking.kakao.enums.HeaderStyle;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,13 +35,13 @@ public class KakaoService {
     public void publishKakaoBot(KakaoWorkMessageReqDto requestDto){
         WebClient webClient = WebClient.create();
 
-        Mono<Object> response = webClient.post()
+        Mono<KakaoWorkResDto> response = webClient.post()
                 .uri("https://api.kakaowork.com/v1/messages.send")
                 .header("Authorization", "Bearer " + kakaoBotToken)
                 .header("Content-Type", "application/json")
                 .bodyValue(requestDto)
                 .retrieve()
-                .bodyToMono(Object.class);
+                .bodyToMono(KakaoWorkResDto.class);
 
         response.subscribe(re -> {
             log.info(re.toString());
