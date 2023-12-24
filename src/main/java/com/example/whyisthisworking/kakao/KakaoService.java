@@ -7,6 +7,7 @@ import com.example.whyisthisworking.kakao.enums.HeaderStyle;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -23,8 +24,10 @@ public class KakaoService {
 
 
     public KakaoWorkMessageReqDto sendKakaoMessage(String headerText, HeaderStyle headerStyle){
+        
         KakaoWorkMessageReqDto requestDto = new KakaoWorkMessageReqDto(kakaoRoomId, headerText);
-        KakaoBlockHeader header = new KakaoBlockHeader(headerText, headerStyle);
+//        KakaoBlockHeader header = new KakaoBlockHeader(headerText, headerStyle);
+        KakaoBlockHeader header = new KakaoBlockHeader(headerText);
         requestDto.addBlock(header);
 
         publishKakaoBot(requestDto);

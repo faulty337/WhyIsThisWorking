@@ -20,8 +20,6 @@ public class KakaoWorkMessageReqDto {
         this.conversation_id = conversation_id;
         this.text = text;
     }
-
-
     public void addBlock(KakaoBlockInterface block){
         this.blocks.add(block);
     }

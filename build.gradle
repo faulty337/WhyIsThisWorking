@@ -31,7 +31,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-integration'
     implementation 'org.springframework.integration:spring-integration-mqtt'
 
-    //webClient
+    // webClient
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     // swagger
