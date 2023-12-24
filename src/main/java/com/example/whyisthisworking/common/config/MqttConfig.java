@@ -39,8 +39,7 @@ public class MqttConfig {
 
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
-    private final MqttService mqttService;
+    
 
     private final int leftLimit = 97; // letter 'a'
     private final int rightLimit = 122; // letter 'z'
