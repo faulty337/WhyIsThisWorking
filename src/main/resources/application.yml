@@ -4,3 +4,6 @@ mqttSetting.pubId = ${MQTT_PUB_ID}
 
 kakao.work.bot.token = ${KAKAO_BOT_TOKEN}
 kakao.work.roomId = ${KAKAO_ROOM_ID}
+
+
+springdoc.swagger-ui.path= ${SWAGGER_URI}

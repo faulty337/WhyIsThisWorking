@@ -1,0 +1,16 @@
+#mqttSetting:
+#  mqttUrl: localhost
+#  subId: subId
+#  pubId: pubId
+#
+kakao:
+  work:
+    bot:
+      token: any
+    roomId: 1234
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false
