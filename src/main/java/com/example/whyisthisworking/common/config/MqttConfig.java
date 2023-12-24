@@ -1,5 +1,6 @@
 package com.example.whyisthisworking.common.config;
 
+import com.example.whyisthisworking.MQTT.MqttService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +8,7 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
@@ -26,6 +28,7 @@ import java.util.Random;
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
+@Profile("!test")
 public class MqttConfig {
     @Value("${mqttSetting.mqttUrl}")
     private String mqttUrl;
@@ -36,6 +39,8 @@ public class MqttConfig {
 
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+
+    private final MqttService mqttService;
 
     private final int leftLimit = 97; // letter 'a'
     private final int rightLimit = 122; // letter 'z'
@@ -63,15 +68,16 @@ public class MqttConfig {
 
     @Bean
     public MessageProducer inboundTest(){
-        return adapterSetting("whtIsThisWorking/test/1", mqttTestInputChannel());
+        return adapterSetting("whyIsThisWorking/test/#", mqttTestInputChannel());
     }
+
 
 
     @Bean
     @ServiceActivator(inputChannel = "mqttTestInputChannel")
     public MessageHandler inboundRobotMessageHandler() {
         return message -> {
-            //로직
+            System.out.println("뜸!!!");
         };
     }
 
