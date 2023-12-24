@@ -1,6 +1,5 @@
 package com.example.whyisthisworking.common.config;
 
-import com.example.whyisthisworking.MQTT.MqttService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +38,7 @@ public class MqttConfig {
 
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    
+
 
     private final int leftLimit = 97; // letter 'a'
     private final int rightLimit = 122; // letter 'z'
